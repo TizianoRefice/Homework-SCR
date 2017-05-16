@@ -1,6 +1,8 @@
-package interpretazioneFile;
+package processamentoSequenze;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,9 +10,9 @@ import java.util.List;
 
 public class LettoreFile {
 
-	public static void main(String[] args) throws IOException {
+	public void Lettore(File file) throws IOException {
 		List<String[]> sequenza = new ArrayList<>();  
-		BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Tiziano\\Downloads\\Sequenza_1\\output_1.dat"));
+		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String line = reader.readLine();
 		while(line!=null) {
 		}
