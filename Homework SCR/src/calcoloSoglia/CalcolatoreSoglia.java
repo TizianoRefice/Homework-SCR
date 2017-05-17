@@ -12,7 +12,7 @@ public class CalcolatoreSoglia {
 	}
 
 	//calcola la soglia usando le potenze delle sequenze generate in NoiseGenerator
-	public double[] calcolaSoglie(int[] valoriSNR) { 	
+	public double[] calcolaSoglie(double[] valoriSNR) { 	
 		for(int i = 0; i <= valoriSNR.length; i++) { 					//in questo modo calcola i valori da solo per tutti gli SNR
 			getSequenzePotenzeRumoreOrdinate(valoriSNR[i]); 			//comando di calcolare l'array di potenze
 			soglie[i] = this.potenzeRumore[989];						//prendo il 990° valore (probFA = 10/1000) <-- CAMBIARE QUESTO VALORE PER ALTERARE LA Pfa DEL NOISE GENERATOR
@@ -21,7 +21,7 @@ public class CalcolatoreSoglia {
 	}
 
 	//fa generare le potenze a NoiseGenerator e poi le ordina
-	public double[] getSequenzePotenzeRumoreOrdinate(int valoreSNR) {
+	public double[] getSequenzePotenzeRumoreOrdinate(double valoreSNR) {
 		int j = 1;
 		double potenzaRumore;									//per salvare il valore di una singola potenza
 		NoiseGenerator generator = new NoiseGenerator();
