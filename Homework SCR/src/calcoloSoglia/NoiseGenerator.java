@@ -9,8 +9,7 @@ public class NoiseGenerator {
 	private double[] parteImmaginaria;
 	private double potRumore;
 
-	protected NoiseGenerator() {
-	}
+	protected NoiseGenerator() {}
 
 	//genera una sequenza randomica di campioni
 	public void noise(double snr, int length) {
@@ -34,13 +33,10 @@ public class NoiseGenerator {
 	
 	//metodo che calcola potenza della sequenza di rumore generata casualmente
 	public double getPotenzaRumore(double[] parteReale, double[] parteImmaginaria) {
-		double potenza = 0;
-		double prodottoReale = 0;
-		double prodottoImmaginario = 0;
-		double sommaProdotti = 0;
+		double potenza, prodottoReale, prodottoImmaginario, sommaProdotti = 0;
 		int lunghezza = parteReale.length; 									//indifferente dove la prendo, tanto hanno la stessa lunghezza
-		double normalizzatore = 1/parteReale.length;
-		for(int i = 0; i <= lunghezza; i++) {								//sarebbe 1/N * sommatoria (da 1 a n) del modulo quadro di R(i)
+		double normalizzatore = 1/lunghezza;
+		for(int i = 0; i < lunghezza; i++) {								//sarebbe 1/N * sommatoria (da 1 a n) del modulo quadro di R(i)
 			prodottoReale = Math.pow(parteReale[i], 2);						//
 			prodottoImmaginario = Math.pow(parteImmaginaria[i], 2);			//
 			sommaProdotti = prodottoReale + prodottoImmaginario;			//

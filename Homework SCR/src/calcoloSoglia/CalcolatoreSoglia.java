@@ -4,20 +4,19 @@ import java.util.Arrays;
 
 public class CalcolatoreSoglia {
 
-	private double[] soglie;
+	private double soglia;
 	private double[] potenzeRumore;
 
 	public CalcolatoreSoglia() {
-		this.soglie = new double[4];
+		this.potenzeRumore = new double[1000];
 	}
 
 	//calcola la soglia usando le potenze delle sequenze generate in NoiseGenerator
-	public double[] calcolaSoglie(double[] valoriSNR) { 	
-		for(int i = 0; i <= valoriSNR.length; i++) { 					//in questo modo calcola i valori da solo per tutti gli SNR
-			getSequenzePotenzeRumoreOrdinate(valoriSNR[i]); 			//comando di calcolare l'array di potenze
-			soglie[i] = this.potenzeRumore[989];						//prendo il 990° valore (probFA = 10/1000) <-- CAMBIARE QUESTO VALORE PER ALTERARE LA Pfa DEL NOISE GENERATOR
-		}
-		return soglie;
+	public double calcolaSoglia(double valoreSNR) { 	
+		this.potenzeRumore = getSequenzePotenzeRumoreOrdinate(valoreSNR); 		//comando di calcolare l'array di potenze
+		soglia = this.potenzeRumore[989];										//prendo il 990° valore (probFA = 10/1000) <-- CAMBIARE QUESTO VALORE PER ALTERARE LA Pfa DEL NOISE GENERATOR 
+		System.out.println("Valore della soglia a " + valoreSNR + "dB: " + soglia );	//ordine SNR: -13, -8, -5, +2 --> CONTROLLARE SE CORRISPONDE																
+		return soglia;
 	}
 
 	//fa generare le potenze a NoiseGenerator e poi le ordina
@@ -33,20 +32,5 @@ public class CalcolatoreSoglia {
 		Arrays.sort(this.potenzeRumore); 						//le ordino
 		return this.potenzeRumore;
 	}
-
-
-//	public double[] ordinaSequenzeRumore(int[] valoriSNR) {
-//		double potenzaRumore = 0;
-//		for(int j = 0; j <= 999; j++) {
-//			NoiseGenerator generator = new NoiseGenerator();
-//			generator.noise(valoriSNR[i], 1000);
-//			this.parteReale = generator.getParteReale();
-//			this.parteImmaginaria = generator.getPerteImmaginaria();
-//			potenzaRumore = generator.getPotenzaRumore(this.parteReale, this.parteImmaginaria);
-//		}
-//		potenzeRumore[i] = potenzaRumore;
-//
-//		return potenzeRumore;
-//	}
 
 }
