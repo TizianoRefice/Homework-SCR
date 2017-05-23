@@ -4,40 +4,38 @@ import calcoloSoglia.CalcolatoreSoglia;
 import processamentoSequenze.CalcolatorePotenzeSegnali;
 import processamentoSequenze.LettoreFile;
 
-
 public class EnergyDetector {
 
-	public static void esegui(double valoreSNR, int sequenzaScelta){
-
-		CalcolatoreSoglia calcolatore = new CalcolatoreSoglia(); //	
-		double soglia = calcolatore.calcolaSoglia(valoreSNR);	 // calcolo la soglia in ipotesi H0
-		
-		LettoreFile lettore = new LettoreFile();				 // leggo da file la sequenza e la divido in parte reale e parte immaginaria
-		lettore.leggi(valoreSNR, sequenzaScelta);		
-
-		CalcolatorePotenzeSegnali calcolatorePotenzaSegnali = new CalcolatorePotenzeSegnali();										     //
-		double[] potenzaSegnale = new double[1000];																					  	 //
-		for(int i = 0; i < 10000; i++) {																							  	 // creo la lista dove andrò a salvare le potenze delle 1000 sequenze del segnale
-			potenzaSegnale[i] = calcolatorePotenzaSegnali.calcolaPotenzaSegnale(lettore.getParteReale(), lettore.getParteImmaginaria()); // calcolo la potenza della porzione di segnale ricevuto e la salvo nella lista
+	private double soglia;
+	private double[] potenze;
+	
+	public EnergyDetector() {}
+	
+	//confronta le potenze calcolate con la soglia
+	//se più del 50% non supera la soglia, dico che il PU non è presente --> POSSIAMO TRASMETTERE
+	public void verificaPresenzaPU(double valoreSNR, int sequenzaScelta) {
+		LettoreFile lf = new LettoreFile();
+		lf.leggi(valoreSNR, sequenzaScelta);
+		CalcolatoreSoglia cs = new CalcolatoreSoglia();
+		CalcolatorePotenzeSegnali cps = new CalcolatorePotenzeSegnali();
+		this.soglia = cs.calcolaSoglia(valoreSNR, sequenzaScelta);	//calcolare la soglia in H0
+		//prendere le sequenze del segnale in entrata e calcolarne la potenza (saranno 1000)
+		for(int j = 0; j < 1000; j++) {
+			this.potenze[j] = cps.calcolaPotenzaSegnale(lf.getParteReale(), lf.getParteImmaginaria());
 		}
-
-		//confrontiamo i valori delle soglie con le mille sequenze del segnale ricevuto in cui abbiamo diviso il segnale ricevuto
-		int contatore = 0;
-		double probabilita;
-		for(int i = 0; i < 1000; i++) {
-			if(potenzaSegnale[i] < soglia)
-				System.out.println("stampa di controllo"); //controllo!! eliminare alla fine
+		double contatore = 0;
+		double probabilita = 0;
+		for(int i = 0; i < this.potenze.length; i++) {
+			if(potenze[i] < soglia) {
 				contatore++;
+			}
 		}
 		probabilita = (contatore/1000) * 100;
-		System.out.println("Percentuale di detection: " + probabilita + "%");
 		if(probabilita > 50) {
-			System.out.println("Non è presente il Primary User, possiamo trasmettere!");
-		} else {
-			System.out.println("E' presente il Primary User, non possiamo trasmettere!");
-		}
+			System.out.println("Il Primary User non è presente, possiamo trasmettere");
+		} else
+			System.out.println("Il Primary User è presente, non possiamo trasmettere");
 	}
+	
 }
 
-//creare 1000 sequenze da 1000
-//out 1 = -3, out 2 = 2, out 3 = -8,  out 4 = -13
