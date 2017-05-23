@@ -1,5 +1,7 @@
 package energyDetector;
 
+import java.io.IOException;
+
 import calcoloSoglia.CalcolatoreSoglia;
 import processamentoSequenze.CalcolatorePotenzeSegnali;
 import processamentoSequenze.LettoreFile;
@@ -13,7 +15,8 @@ public class EnergyDetector {
 	
 	//confronta le potenze calcolate con la soglia
 	//se più del 50% non supera la soglia, dico che il PU non è presente --> POSSIAMO TRASMETTERE
-	public void verificaPresenzaPU(double valoreSNR, int sequenzaScelta) {
+	public void verificaPresenzaPU(double valoreSNR, int sequenzaScelta) throws IOException {
+		System.out.println("RISULTATI:");
 		LettoreFile lf = new LettoreFile();
 		lf.leggi(valoreSNR, sequenzaScelta);
 		CalcolatoreSoglia cs = new CalcolatoreSoglia();

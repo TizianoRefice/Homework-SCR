@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class CalcolatoreSoglia {
 
-	public CalcolatoreSoglia() {
-	}
+	public CalcolatoreSoglia() {}
 
 	//calcola la soglia usando le potenze delle sequenze generate in NoiseGenerator
 	public double calcolaSoglia(double valoreSNR, int sequenzaScelta) {
@@ -13,6 +12,7 @@ public class CalcolatoreSoglia {
 		double[] potenzeOrdinate = this.getPotenzeRumoreOrdinate(valoreSNR, sequenzaScelta);
 		//prendere la soglia in modo che solo 10 potenze su 1000 siano al di sopra
 		double soglia = potenzeOrdinate[989];
+		System.out.println("Valore della soglia: " + soglia);
 		return soglia;
 	}
 
