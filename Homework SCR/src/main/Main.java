@@ -31,3 +31,7 @@ public class Main {
 	}
 }
 
+/* NB:
+ * Per far funzionare il codice occorre cambiare il percorso dei file nella classe LettoreFile con il percorso
+ * nel quale si trovano le sequenze nel proprio computer 
+ */

@@ -17,22 +17,22 @@ public class LettoreFile {
 		//in base all'SNR scelto cambiano i valori dell'indirizzo 
 		switch(sequenzaScelta) {
 		//caso in cui la sequenza scelta sia la numero 1
-		case 1: if(valoreSNR == -13) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_1/output_4.dat"; }  
-				if(valoreSNR == -8) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_1/output_3.dat"; }
-				if(valoreSNR == -5) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_1/output_1.dat"; }
-				if(valoreSNR == +2) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_1/output_2.dat"; }
+		case 1: if(valoreSNR == -13) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_1/output_4.dat"; }  // <-- CAMBIARE QUI tutti gli indirizzi
+				if(valoreSNR == -8) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_1/output_3.dat"; }
+				if(valoreSNR == -5) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_1/output_1.dat"; }
+				if(valoreSNR == +2) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_1/output_2.dat"; }
 				break;
 		//caso in cui la sequenza scelta sia la numero 2		
-		case 2: if(valoreSNR == -13) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_2/output_4.dat"; } 
-				if(valoreSNR == -8) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_2/output_3.dat"; }
-				if(valoreSNR == -5) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_2/output_1.dat"; }
-				if(valoreSNR == +2) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_2/output_2.dat"; }
+		case 2: if(valoreSNR == -13) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_2/output_4.dat"; } 
+				if(valoreSNR == -8) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_2/output_3.dat"; }
+				if(valoreSNR == -5) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_2/output_1.dat"; }
+				if(valoreSNR == +2) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_2/output_2.dat"; }
 				break;
 		//caso in cui la sequenza scelta sia la numero 3		
-		case 3: if(valoreSNR == -13) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_3/output_4.dat"; } 
-				if(valoreSNR == -8) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_3/output_3.dat"; }
-				if(valoreSNR == -5) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_3/output_1.dat"; }
-				if(valoreSNR == +2) { indirizzo = "C:/Users/trefi/Desktop/SCR/Sequenza_3/output_2.dat"; }
+		case 3: if(valoreSNR == -13) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_3/output_4.dat"; } 
+				if(valoreSNR == -8) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_3/output_3.dat"; }
+				if(valoreSNR == -5) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_3/output_1.dat"; }
+				if(valoreSNR == +2) { indirizzo = "C:/Users/Tiziano/Desktop/Università/SCR/Sequenze Homework/Sequenza_3/output_2.dat"; }
 				break;
 		}	
 		//sposta la sequenza letta da file in due array 
